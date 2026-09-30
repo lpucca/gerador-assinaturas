@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
-<title>Gerador de Assinatura - Technoblast</title>
+<title>Gerador de Assinatura - Logo à Esquerda</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
   .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
@@ -18,78 +18,24 @@
 </head>
 <body>
 <div class="container">
-  <h2 style="color: #07193F;">Gerador de Assinaturas - Technoblast</h2>
+  <h2 style="color: #07193F;">Variação: Logo à Esquerda</h2>
   
-  <div class="form-group">
-    <label>Nome Completo:</label>
-    <input type="text" id="nome" placeholder="seu nome">
-  </div>
-  
-  <div class="form-group">
-    <label>Cargo:</label>
-    <input type="text" id="cargo" placeholder="seu cargo">
-  </div>
-  
-  <div class="form-group">
-    <label>E-mail:</label>
-    <input type="text" id="email" placeholder="seu e-mail corporativo">
-  </div>
-  
-  <div class="form-group">
-    <label>Telemóvel / Celular:</label>
-    <input type="text" id="cel" placeholder="apenas números" oninput="this.value = mascaraCelular(this.value)">
-  </div>
-
-  <div class="form-group">
-    <label>Telefone Fixo:</label>
-    <input type="text" id="tel" placeholder="apenas números" oninput="this.value = mascaraFixo(this.value)">
-  </div>
+  <div class="form-group"><label>Nome Completo:</label><input type="text" id="nome" placeholder="Ex: Luciano Russi Pucca"></div>
+  <div class="form-group"><label>Cargo:</label><input type="text" id="cargo" placeholder="Ex: Coordenador de Laboratório"></div>
+  <div class="form-group"><label>E-mail:</label><input type="text" id="email" placeholder="Ex: luciano@technoblast.com.br"></div>
+  <div class="form-group"><label>Telemóvel / Celular:</label><input type="text" id="cel" placeholder="Ex: +55 (11) 94365-9049" oninput="this.value = mascaraCelular(this.value)"></div>
+  <div class="form-group"><label>Telefone Fixo:</label><input type="text" id="tel" placeholder="Ex: +55 (11) 3567-3777" oninput="this.value = mascaraFixo(this.value)"></div>
   
   <button class="gerar" onclick="gerarAssinatura()">1. Gerar Assinatura</button>
-
-  <div id="signature-preview">
-    <!-- A assinatura gerada aparecerá aqui -->
-  </div>
-  
+  <div id="signature-preview"></div>
   <button class="copiar" onclick="copiarAssinatura()">2. Copiar Assinatura</button>
 </div>
 
 <script>
   const LINK_DA_IMAGEM_NA_INTERNET = "https://www.technoblast.com.br/wp-content/uploads/2023/04/logo.jpg";
 
-  function mascaraCelular(v) {
-    v = v.replace(/\D/g, ""); 
-    if (v.startsWith("55")) v = v.substring(2); 
-    if (v.length > 11) v = v.substring(0, 11); 
-    
-    if (v.length > 2) {
-        v = v.replace(/^(\d{2})(\d)/g, "+55 ($1) $2");
-    } else if (v.length > 0) {
-        v = v.replace(/^(\d)/g, "+55 ($1");
-    }
-    
-    if (v.length > 14) {
-        v = v.replace(/(\d{5})(\d)/, "$1-$2");
-    }
-    return v;
-  }
-
-  function mascaraFixo(v) {
-    v = v.replace(/\D/g, ""); 
-    if (v.startsWith("55")) v = v.substring(2);
-    if (v.length > 10) v = v.substring(0, 10); 
-    
-    if (v.length > 2) {
-        v = v.replace(/^(\d{2})(\d)/g, "+55 ($1) $2");
-    } else if (v.length > 0) {
-        v = v.replace(/^(\d)/g, "+55 ($1");
-    }
-    
-    if (v.length > 13) {
-        v = v.replace(/(\d{4})(\d)/, "$1-$2");
-    }
-    return v;
-  }
+  function mascaraCelular(v) { v = v.replace(/\D/g, ""); if (v.startsWith("55")) v = v.substring(2); if (v.length > 11) v = v.substring(0, 11); if (v.length > 2) { v = v.replace(/^(\d{2})(\d)/g, "+55 ($1) $2"); } else if (v.length > 0) { v = v.replace(/^(\d)/g, "+55 ($1"); } if (v.length > 14) { v = v.replace(/(\d{5})(\d)/, "$1-$2"); } return v; }
+  function mascaraFixo(v) { v = v.replace(/\D/g, ""); if (v.startsWith("55")) v = v.substring(2); if (v.length > 10) v = v.substring(0, 10); if (v.length > 2) { v = v.replace(/^(\d{2})(\d)/g, "+55 ($1) $2"); } else if (v.length > 0) { v = v.replace(/^(\d)/g, "+55 ($1"); } if (v.length > 13) { v = v.replace(/(\d{4})(\d)/, "$1-$2"); } return v; }
 
   function gerarAssinatura() {
     const nome = document.getElementById('nome').value || 'Nome do Colaborador';
@@ -102,28 +48,32 @@
     <table id="tabela-assinatura" cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; color: #07193F; font-size: 13px; line-height: 1.5; background-color: #ffffff;">
         <tr>
             <td style="padding-bottom: 5px;">
-                <p style="margin: 0;">Atenciosamente,</p>
-                <p style="margin: 0; font-size: 10px;">&nbsp;</p>
-                <p style="margin: 0; font-size: 10px;">&nbsp;</p>
+                <p style="margin: 0; font-family: Arial, Helvetica, sans-serif;">Atenciosamente,</p>
+                <p style="margin: 0; font-size: 10px; font-family: Arial, Helvetica, sans-serif;">&nbsp;</p>
+                <p style="margin: 0; font-size: 10px; font-family: Arial, Helvetica, sans-serif;">&nbsp;</p>
             </td>
         </tr>
         <tr>
             <td style="padding-bottom: 15px;">
-                <p style="margin: 0; font-size: 18px; font-weight: bold; color: #F05A28;">${nome}</p>
-                <p style="margin: 0; font-size: 14px; font-weight: normal;">${cargo}</p>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td valign="middle" style="padding-right: 20px;">
+                            <img src="${LINK_DA_IMAGEM_NA_INTERNET}" alt="Technoblast - Sismografia e Ruído Ambiental" width="200" style="display: block; border: none; max-width: 100%; height: auto;" />
+                        </td>
+                        <td valign="middle" style="text-align: center;">
+                            <p style="margin: 0; font-size: 18px; font-weight: bold; color: #F05A28; font-family: Arial, Helvetica, sans-serif;">${nome}</p>
+                            <p style="margin: 0; font-size: 14px; font-weight: normal; font-family: Arial, Helvetica, sans-serif;">${cargo}</p>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
         <tr>
-            <td style="border-top: 2px solid #F05A28; padding-top: 15px; padding-bottom: 10px;">
-                <img src="${LINK_DA_IMAGEM_NA_INTERNET}" alt="Technoblast - Sismografia e Ruído Ambiental" width="200" style="display: block; border: none; max-width: 100%; height: auto;" />
-            </td>
-        </tr>
-        <tr>
-            <td style="font-size: 12px; color: #555555;">
-                <p style="margin: 0 0 4px 0;"><strong>E-mail:</strong> <a href="mailto:${email}" style="color: #07193F; text-decoration: none;">${email}</a></p>
-                <p style="margin: 0 0 4px 0;"><strong>Cel:</strong> ${cel} &nbsp;|&nbsp; <strong>Tel:</strong> ${tel}</p>
-                <p style="margin: 0 0 4px 0;">Laboratório de Ensaio e Calibração Acreditado pela Cgcre / INMETRO</p>
-                <p style="margin: 0;">Dúvidas, sugestões ou reclamações, acesse <a href="https://technoblast.com.br" style="color: #07193F; text-decoration: none; font-weight: bold;">technoblast.com.br</a></p>
+            <td style="border-top: 2px solid #F05A28; padding-top: 15px; font-size: 12px; color: #555555; font-family: Arial, Helvetica, sans-serif;">
+                <p style="margin: 0 0 4px 0; font-family: Arial, Helvetica, sans-serif;"><strong>E-mail:</strong> <a href="mailto:${email}" style="color: #07193F; text-decoration: none; font-family: Arial, Helvetica, sans-serif;">${email}</a></p>
+                <p style="margin: 0 0 4px 0; font-family: Arial, Helvetica, sans-serif;"><strong>Cel:</strong> ${cel} &nbsp;|&nbsp; <strong>Tel:</strong> ${tel}</p>
+                <p style="margin: 0 0 4px 0; font-family: Arial, Helvetica, sans-serif;">Laboratório de Ensaio e Calibração Acreditado pela Cgcre / INMETRO</p>
+                <p style="margin: 0; font-family: Arial, Helvetica, sans-serif;">Dúvidas, sugestões ou reclamações, acesse <a href="https://technoblast.com.br" style="color: #07193F; text-decoration: none; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">technoblast.com.br</a></p>
             </td>
         </tr>
     </table>
@@ -132,25 +82,10 @@
   }
 
   function copiarAssinatura() {
-    const preview = document.getElementById('signature-preview');
     const tabelaAssinatura = document.getElementById('tabela-assinatura');
-    
-    if (!tabelaAssinatura) {
-      alert('Por favor, clique primeiro em "1. Gerar Assinatura".');
-      return;
-    }
-    
-    const range = document.createRange();
-    range.selectNode(tabelaAssinatura); 
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    
-    try {
-      document.execCommand('copy');
-      alert('Assinatura copiada com sucesso! Pode colar no seu e-mail (Outlook, Gmail, etc.) e o fundo ficará limpo.');
-    } catch(err) {
-      alert('Erro ao copiar. Selecione o conteúdo na tela e pressione Ctrl+C.');
-    }
+    if (!tabelaAssinatura) { alert('Por favor, clique primeiro em "1. Gerar Assinatura".'); return; }
+    const range = document.createRange(); range.selectNode(tabelaAssinatura); window.getSelection().removeAllRanges(); window.getSelection().addRange(range);
+    try { document.execCommand('copy'); alert('Assinatura copiada com sucesso!'); } catch(err) { alert('Erro ao copiar.'); }
     window.getSelection().removeAllRanges();
   }
 </script>
