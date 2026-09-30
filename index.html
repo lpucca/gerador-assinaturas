@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
-<title>Gerador de Assinatura - Logo à Esquerda</title>
+<title>Gerador de Assinatura - Logo à Direita</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
   .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="container">
-  <h2 style="color: #07193F;">Variação: Logo à Esquerda</h2>
+  <h2 style="color: #07193F;">Variação: Logo à Direita</h2>
   
   <div class="form-group"><label>Nome Completo:</label><input type="text" id="nome" placeholder="Ex: Luciano Russi Pucca"></div>
   <div class="form-group"><label>Cargo:</label><input type="text" id="cargo" placeholder="Ex: Coordenador de Laboratório"></div>
@@ -57,12 +57,12 @@
             <td style="padding-bottom: 15px;">
                 <table cellpadding="0" cellspacing="0" border="0">
                     <tr>
-                        <td valign="middle" style="padding-right: 20px;">
-                            <img src="${LINK_DA_IMAGEM_NA_INTERNET}" alt="Technoblast - Sismografia e Ruído Ambiental" width="200" style="display: block; border: none; max-width: 100%; height: auto;" />
-                        </td>
-                        <td valign="middle" style="text-align: center;">
+                        <td valign="middle" style="padding-right: 20px; text-align: center;">
                             <p style="margin: 0; font-size: 18px; font-weight: bold; color: #F05A28; font-family: Arial, Helvetica, sans-serif;">${nome}</p>
                             <p style="margin: 0; font-size: 14px; font-weight: normal; font-family: Arial, Helvetica, sans-serif;">${cargo}</p>
+                        </td>
+                        <td valign="middle">
+                            <img src="${LINK_DA_IMAGEM_NA_INTERNET}" alt="Technoblast - Sismografia e Ruído Ambiental" width="200" style="display: block; border: none; max-width: 100%; height: auto;" />
                         </td>
                     </tr>
                 </table>
