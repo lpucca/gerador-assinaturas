@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
-<title>Gerador de Assinatura V1.2 - Technoblast</title>
+<title>Gerador de Assinatura - Technoblast</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
   .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
@@ -18,31 +18,31 @@
 </head>
 <body>
 <div class="container">
-  <h2 style="color: #07193F;">Gerador de Assinaturas V1.2 - Technoblast</h2>
+  <h2 style="color: #07193F;">Gerador de Assinaturas - Technoblast</h2>
   
   <div class="form-group">
     <label>Nome Completo:</label>
-    <input type="text" id="nome" placeholder="nn">
+    <input type="text" id="nome" placeholder="Ex: Luciano Russi Pucca">
   </div>
   
   <div class="form-group">
     <label>Cargo:</label>
-    <input type="text" id="cargo" placeholder="Ex: nn">
+    <input type="text" id="cargo" placeholder="Ex: Coordenador de Laboratório">
   </div>
   
   <div class="form-group">
     <label>E-mail:</label>
-    <input type="text" id="email" placeholder="Ex: nnnnnnnn@technoblast.com.br">
+    <input type="text" id="email" placeholder="Ex: luciano@technoblast.com.br">
   </div>
   
   <div class="form-group">
     <label>Telemóvel / Celular:</label>
-    <input type="text" id="cel" placeholder="Apenas números DDDXXXXXXXXX" oninput="this.value = mascaraCelular(this.value)">
+    <input type="text" id="cel" placeholder="Ex: +55 (11) 94365-9049" oninput="this.value = mascaraCelular(this.value)">
   </div>
 
   <div class="form-group">
     <label>Telefone Fixo:</label>
-    <input type="text" id="tel" placeholder="Apenas números DDDXXXXXXXX" oninput="this.value = mascaraFixo(this.value)">
+    <input type="text" id="tel" placeholder="Ex: +55 (11) 3567-3777" oninput="this.value = mascaraFixo(this.value)">
   </div>
   
   <button class="gerar" onclick="gerarAssinatura()">1. Gerar Assinatura</button>
@@ -57,7 +57,6 @@
 <script>
   const LINK_DA_IMAGEM_NA_INTERNET = "https://www.technoblast.com.br/wp-content/uploads/2023/04/logo.jpg";
 
-  // Função para máscara do Celular: +55 (11) XXXXX-XXXX
   function mascaraCelular(v) {
     v = v.replace(/\D/g, ""); 
     if (v.startsWith("55")) v = v.substring(2); 
@@ -75,7 +74,6 @@
     return v;
   }
 
-  // Função para máscara do Telefone Fixo: +55 (11) XXXX-XXXX
   function mascaraFixo(v) {
     v = v.replace(/\D/g, ""); 
     if (v.startsWith("55")) v = v.substring(2);
@@ -100,7 +98,6 @@
     const cel = document.getElementById('cel').value || '+55 (11) XXXXX-XXXX';
     const tel = document.getElementById('tel').value || '+55 (11) XXXX-XXXX';
 
-    // O background-color: #ffffff garante que a tabela não herde cores no Outlook
     const htmlAssinatura = `
     <table id="tabela-assinatura" cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; color: #07193F; font-size: 13px; line-height: 1.5; background-color: #ffffff;">
         <tr>
@@ -108,12 +105,6 @@
                 <p style="margin: 0;">Atenciosamente,</p>
                 <p style="margin: 0; font-size: 10px;">&nbsp;</p>
                 <p style="margin: 0; font-size: 10px;">&nbsp;</p>
-		<p style="margin: 0; font-size: 10px;">&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="padding-bottom: 10px;">
-                <img src="${LINK_DA_IMAGEM_NA_INTERNET}" alt="Technoblast - Sismografia e Ruído Ambiental" width="200" style="display: block; border: none; max-width: 100%; height: auto;" />
             </td>
         </tr>
         <tr>
@@ -123,7 +114,12 @@
             </td>
         </tr>
         <tr>
-            <td style="border-top: 2px solid #F05A28; padding-top: 10px; font-size: 12px; color: #555555;">
+            <td style="border-top: 2px solid #F05A28; padding-top: 15px; padding-bottom: 10px;">
+                <img src="${LINK_DA_IMAGEM_NA_INTERNET}" alt="Technoblast - Sismografia e Ruído Ambiental" width="200" style="display: block; border: none; max-width: 100%; height: auto;" />
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 12px; color: #555555;">
                 <p style="margin: 0 0 4px 0;"><strong>E-mail:</strong> <a href="mailto:${email}" style="color: #07193F; text-decoration: none;">${email}</a></p>
                 <p style="margin: 0 0 4px 0;"><strong>Cel:</strong> ${cel} &nbsp;|&nbsp; <strong>Tel:</strong> ${tel}</p>
                 <p style="margin: 0 0 4px 0;">Laboratório de Ensaio e Calibração Acreditado pela Cgcre / INMETRO</p>
@@ -137,7 +133,7 @@
 
   function copiarAssinatura() {
     const preview = document.getElementById('signature-preview');
-    const tabelaAssinatura = document.getElementById('tabela-assinatura'); // Agora copiamos APENAS a tabela, sem o fundo cinza
+    const tabelaAssinatura = document.getElementById('tabela-assinatura');
     
     if (!tabelaAssinatura) {
       alert('Por favor, clique primeiro em "1. Gerar Assinatura".');
@@ -145,7 +141,7 @@
     }
     
     const range = document.createRange();
-    range.selectNode(tabelaAssinatura); // Seleciona apenas a tabela limpa
+    range.selectNode(tabelaAssinatura); 
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
     
